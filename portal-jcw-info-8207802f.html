@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>竟彩网首页 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fcfcfc;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2937;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 760px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.03);
+            padding: 3.5rem 2.5rem;
+            transition: box-shadow 0.15s ease;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1.2rem 0.8rem; }
+            .page-wrap { padding: 2rem 1.5rem; border-radius: 20px; }
+        }
+
+        /* 柔和的视觉层次 */
+        .hero-note {
+            font-size: 1.5rem;
+            font-weight: 350;
+            letter-spacing: -0.01em;
+            color: #111827;
+            margin-bottom: 1.8rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eaeef2;
+            line-height: 1.4;
+        }
+
+        .hero-note strong {
+            font-weight: 500;
+            color: #1e3a5f;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text a {
+            color: #1f4a74;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.18s;
+        }
+
+        .intro-text a:hover {
+            border-bottom-color: #1f4a74;
+        }
+
+        /* 特点卡片 — 极简留白、清晰分隔 */
+        .feature-headline {
+            margin-top: 2.8rem;
+            margin-bottom: 1.6rem;
+            font-size: 1.2rem;
+            font-weight: 480;
+            letter-spacing: 0.3px;
+            color: #1f2937;
+            padding-left: 0.4rem;
+            border-left: 3px solid #cfdde9;
+            padding-left: 1rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-item {
+            background: #f9fafb;
+            padding: 1rem 1.4rem;
+            border-radius: 18px;
+            border: 1px solid #eef2f6;
+            transition: background 0.1s;
+        }
+
+        .feature-item span {
+            display: block;
+            font-weight: 470;
+            font-size: 1.02rem;
+            margin-bottom: 0.2rem;
+            color: #1f2c3d;
+        }
+
+        .feature-item p {
+            font-size: 0.96rem;
+            color: #3b4a5a;
+            margin: 0;
+        }
+
+        /* 温和的提示/场景区 */
+        .gentle-callout {
+            background: #f4f7fb;
+            padding: 1.4rem 1.8rem;
+            border-radius: 24px;
+            margin: 2.2rem 0 1.8rem 0;
+            border: 1px solid #e3eaf0;
+        }
+
+        .gentle-callout p {
+            font-size: 0.98rem;
+            color: #2b3e4e;
+            margin-bottom: 0.8rem;
+        }
+
+        .gentle-callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .gentle-callout strong {
+            font-weight: 500;
+            color: #1b3a59;
+        }
+
+        /* 摘要 + FAQ 风格小段落 */
+        .faq-mini {
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .faq-mini details {
+            border-top: 1px solid #e8edf2;
+            padding: 0.9rem 0 0.3rem 0;
+        }
+
+        .faq-mini details:first-of-type {
+            border-top: none;
+        }
+
+        .faq-mini summary {
+            font-weight: 480;
+            color: #1f3a4f;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            font-size: 1rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸ ";
+            color: #8a9aa8;
+            font-size: 1.2rem;
+            margin-right: 6px;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            margin: 0.6rem 0 0.2rem 1.6rem;
+            font-size: 0.95rem;
+            color: #364452;
+            padding-right: 1rem;
+        }
+
+        /* 小字与分隔 */
+        .closing-line {
+            margin-top: 2.8rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e6ecf1;
+            font-size: 0.94rem;
+            color: #4b5b6b;
+            text-align: left;
+        }
+
+        .closing-line a {
+            color: #1f4a74;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            font-weight: 450;
+        }
+
+        .closing-line a:hover {
+            border-bottom-color: #1f4a74;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #eaeef3;
+            margin: 1.8rem 0 0.8rem 0;
+        }
+
+        .small-meta {
+            font-size: 0.88rem;
+            color: #6b7d8c;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 开场短句 -->
+    <div class="hero-note">
+        一处关于竞彩的安静站点。
+    </div>
+
+    <!-- 承接段落 — 自然引入站点说明与可信角度 -->
+    <div class="intro-text">
+        <p>
+            网络上的信息时常嘈杂，而一个清晰、克制的信息聚合点往往能帮人节省不少时间。
+            <strong>竟彩网首页</strong>便是这样一处存在：它不渲染焦虑，也不承诺奇迹，只是将体育竞彩相关的资讯、数据与基础规则梳理在一起，让感兴趣的人能按自己的节奏了解。
+        </p>
+        <p>
+            熟悉或陌生都不要紧。这个站点的设计初衷是提供一个可依赖的起点——哪怕只是随手翻看几页，也能对当下竞彩的玩法、赛事动态以及基本的风险提示有所体认。
+        </p>
+        <p>
+            也正是出于这份朴素的信任感，很多朋友把 <a href="https://portal-jcw.com">竟彩网首页</a> 当作日常的信息参照地。不必注册，无需下载，打开即用。
+        </p>
+    </div>
+
+    <!-- 特点列表 — 标识性内容 -->
+    <div class="feature-headline">站点的一些特点</div>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span>· 内容偏重事实梳理</span>
+            <p>赛事数据、术语说明、规则摘要均以清晰的方式陈列，减少模棱两可的表述。</p>
+        </div>
+        <div class="feature-item">
+            <span>· 界面克制，专注阅读</span>
+            <p>没有弹窗、无悬浮广告，窄栏排版让视线自然下移，不被无关元素干扰。</p>
+        </div>
+        <div class="feature-item">
+            <span>· 保持更新节奏</span>
+            <p>重要联赛期间会同步调整信息结构，但不会为了流量堆砌重复内容。</p>
+        </div>
+    </div>
+
+    <!-- 温和的场景 + 可信说明段落 -->
+    <div class="gentle-callout">
+        <p><strong>用得上，但不必依赖。</strong> 无论你是刚接触竞彩的新手，还是偶尔看一眼数据的老朋友，都不妨把这里当作一个安静的参考点。所有内容均基于公开信息整理，不构成任何投注建议。</p>
+        <p>记不清规则的时候，或者想确认某个赛事的基本面——<a href="https://portal-jcw.com">竟彩网首页</a> 总是那个值得先打开的地方。</p>
+    </div>
+
+    <!-- FAQ 摘要风格 — 两个常见疑问的温和解答 -->
+    <div class="faq-mini">
+        <details>
+            <summary>这里的内容可靠吗？</summary>
+            <p>站点信息主要来自公开的竞彩官方规则以及主流赛事数据源，经过基础交叉核对。但竞技体育充满变量，任何数据都有时效性，建议结合多个渠道综合判断。</p>
+        </details>
+        <details>
+            <summary>需要付费或注册吗？</summary>
+            <p>完全免费，也不要求注册或登录。整个站点就是一个公开的信息页面，你随时可以来，也随时可以走。</p>
+        </details>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="closing-line">
+        感谢你花时间阅读这些文字。如果觉得这里有点用处，不妨把 <a href="https://portal-jcw.com">竟彩网首页</a> 记在书签里。<br>
+        <span class="small-meta">开放、安静、不打扰 —— 一个信息节点该有的样子。</span>
+    </div>
+
+    <!-- 极简分隔，无多余装饰 -->
+    <hr>
+    <div class="small-meta" style="text-align:left;">
+        站点简述 · 仅作信息展示
+    </div>
+
+</div>
+</body>
+</html>
